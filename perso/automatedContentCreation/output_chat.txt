@@ -1,0 +1,35 @@
+ Ces dernières années, les entreprises ont compris l’importance d’analyser les données pour en tirer des bénéfices en matière de choix stratégiques, d’accompagnement client et de positionnement vis-à-vis de la concurrence. Pour cela, elles ont créé un pôle data qui regroupe notamment des ingénieurs data science, ou data scientists, pour travailler sur le sujet.
+
+1. Qui est l’ingénieur data science ?
+
+L’ingénieur data science, ou le métier de data scientist, est un nouveau profil apparu cette dernière décennie afin de faire face aux besoins des entreprises en matière de traitement des données.
+
+2. Le rôle de l’ingénieur data science dans votre entreprise
+
+L’ingénieur data science, ou data scientist, a pour but de collecter, de trier, d’organiser, d’analyser et d’exploiter des données afin de résoudre les problématiques l’entreprise comme l’amélioration de la qualité ou de la productivité. Il participe à un projet data avec ses collègues de l’équipe data.
+
+A. Le rôle de l’ingénieur data science
+
+L’ingénieur data science travaille au sein de l’équipe d’experts data de votre entreprise. Il peut exercer plusieurs métiers : data analyst, data scientist, data architect, data manager… La diversité des métiers possibles pour le poste de data scientist permet de nombreuses évolutions. Les missions du data scientist sont :
+
+- le choix des outils d’analyse,
+- la définition de solutions de stockage des données,
+- le recueil et l’analyse des données pertinentes pour l’entreprise,
+- la construction d’algorithmes complexes permettant d’améliorer les résultats de recherches et de ciblage,
+- l’élaboration de modèles de prédictions afin d’anticiper les comportements clients,
+- la création de rendus visuels afin de rendre les résultats lisibles et exploitables par tous les métiers,
+- la contribution à la prise de décision et à la formulation de recommandations,
+- la veille technologique.
+
+B. Les relations entre l’ingénieur data science et les collaborateurs de votre entreprise
+
+L’ingénieur data science doit également avoir un contact très proche avec le business pour bien le comprendre, répondre à son besoin et trouver des solutions. Pour cela, il est important qu’il soit en contact avec les différents départements de l’entreprise, en fonction du projet : le département informatique, communication, financier, marketing… Une bonne transversalité dans la communication et une méthodologie DataOps sont des moyens pour mener au succès des projets data. Pour l’intégration de l’ingénieur data dans l’entreprise, il est important de bien intégrer l’équipe data au sein de votre entreprise.
+
+C. Le marché de l’emploi pour l’ingénieur data science
+
+Les ingénieurs data science sont aujourd’hui très recherchés pour plusieurs raisons :
+
+- les métiers du Big Data et la révolution numérique des entreprises sont en plein développement ;
+- les formations de data scientist sont encore en nombre trop faible par rapport à la demande ;
+- il s’agit de nouveaux profils ;
+-
