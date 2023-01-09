@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <title>pydeck</title>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBomy3MbbACalcJCph_RzRhtYfHILMKlAo&libraries=places"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
+    <script src='https://cdn.jsdelivr.net/npm/@deck.gl/jupyter-widget@~8.8.*/dist/index.js'></script>
+    <style>
+    body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#deck-container {
+  width: 100vw;
+  height: 100vh;
+}
+
+#deck-container canvas {
+  z-index: 1;
+  background: none;
+}
+    </style>
+  </head>
+  <body>
+    <div id="deck-container">
+    </div>
+  </body>
+  <script>
+    const container = document.getElementById('deck-container');
+    const jsonInput = {
+  "initialViewState": {
+    "latitude": 43.278111187499995,
+    "longitude": 5.459755475,
+    "zoom": 6
+  },
+  "layers": [
+    {
+      "@@type": "HeatmapLayer",
+      "aggregation": "MEAN",
+      "colorRange": [
+        [
+          240,
+          249,
+          232
+        ],
+        [
+          204,
+          235,
+          197
+        ],
+        [
+          168,
+          221,
+          181
+        ],
+        [
+          123,
+          204,
+          196
+        ],
+        [
+          67,
+          162,
+          202
+        ],
+        [
+          8,
+          104,
+          172
+        ]
+      ],
+      "data": [
+        {
+          "lat": 43.30179589999999,
+          "lon": 5.4927682,
+          "weight": 1
+        },
+        {
+          "lat": 43.3396911,
+          "lon": 5.4599962,
+          "weight": 1
+        },
+        {
+          "lat": 43.23013539999999,
+          "lon": 5.5344393,
+          "weight": 1
+        },
+        {
+          "lat": 43.23818869999999,
+          "lon": 5.430134799999999,
+          "weight": 1
+        },
+        {
+          "lat": 43.3020523,
+          "lon": 5.492686,
+          "weight": 1
+        },
+        {
+          "lat": 43.21143,
+          "lon": 5.516852,
+          "weight": 1
+        },
+        {
+          "lat": 43.33370070000001,
+          "lon": 5.370389599999999,
+          "weight": 1
+        },
+        {
+          "lat": 43.2678954,
+          "lon": 5.380777699999999,
+          "weight": 1
+        }
+      ],
+      "getPosition": "@@=[lon, lat]",
+      "getWeight": "@@=weight",
+      "id": "1f455e9a-f234-4d0a-9bc9-c7ca42703ae3",
+      "opacity": 0.9,
+      "pickable": true,
+      "threshold": 1
+    }
+  ],
+  "mapProvider": "mapbox",
+  "mapStyle": "mapbox://styles/mapbox/satellite-v9",
+  "views": [
+    {
+      "@@type": "MapView",
+      "controller": true
+    }
+  ]
+};
+    const tooltip = {'text': 'Concentration Padel in France'};
+    const customLibraries = null;
+    const configuration = null;
+
+    const deckInstance = createDeck({
+                  googleMapsKey: 'AIzaSyBomy3MbbACalcJCph_RzRhtYfHILMKlAo',
+            container,
+      jsonInput,
+      tooltip,
+      customLibraries,
+      configuration
+    });
+
+  </script>
+</html>
