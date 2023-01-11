@@ -8,7 +8,7 @@ import pydeck as pdk
 
 # %%
 import streamlit as st
-chart_data = pd.read_csv("listPadelsCleaned.csv")
+chart_data = pd.read_csv("/rapmac-repo/perso/padel/listPadelsCleaned.csv")
 chart_data['lon'] = chart_data['latitude'] 
 chart_data['lat'] = chart_data['longitude']
 chart_data.drop(columns=['longitude'])
