@@ -122,7 +122,7 @@ dfPadelList['lon'] = latitude
 dfPadelList['coordonnees_gps'] = coordonnees_gps
 
 Niveau_de_vie_Commune = []
-Niveau_de_vie_Departement = []
+DEPCOM = []
 PTOT = []
 Nom_commune = []
 Code_postal = []
@@ -131,7 +131,7 @@ lng = []
 lat = []
 for i in range(len(communes)):
     Niveau_de_vie_Commune.append(float(communes[i][0]))
-    Niveau_de_vie_Departement.append(float(communes[i][1]))
+    DEPCOM.append(float(communes[i][0]))
     PTOT.append(int(float(communes[i][2])))
     Nom_commune.append(communes[i][3])
     Code_postal.append(int(float(communes[i][4])))
@@ -139,7 +139,7 @@ for i in range(len(communes)):
     lng.append(float(communes[i][6]))
     lat.append(float(communes[i][7]))
 dfCommunes = pd.DataFrame(Niveau_de_vie_Commune, columns=['Niveau_de_vie_Commune'])
-dfCommunes['Niveau_de_vie_Departement'] = Niveau_de_vie_Departement
+dfCommunes['DEPCOM'] = DEPCOM
 dfCommunes['PTOT'] = PTOT
 dfCommunes['Nom_commune'] = Nom_commune
 dfCommunes['Code_postal'] = Code_postal
