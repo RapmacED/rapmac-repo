@@ -4,10 +4,8 @@
 import pandas as pd
 import numpy as np
 import pydeck as pdk
-#from google.oauth2 import service_account
-#from gsheetsdb import connect
-import google.oauth2
-import gsheetsdb
+from google.oauth2 import service_account
+from gsheetsdb import connect
 import pandas as pd
 import streamlit as st
 
