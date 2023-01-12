@@ -57,7 +57,7 @@ for i in range(len(densityPadel)):
     COM.append(densityPadel[i][1])
     PMUN.append(densityPadel[i][2])
     PCAP.append(densityPadel[i][3])
-    PTOT.append(float(densityPadel[i][4]))
+    PTOT.append(int(densityPadel[i][4]))
     Nom_commune.append(densityPadel[i][5])
     Code_postal.append(densityPadel[i][6])
     coordonnees_gps.append(densityPadel[i][7])
