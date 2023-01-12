@@ -4,3 +4,4 @@ pandas
 protobuf
 pydeck
 streamlit
+pyparsing
