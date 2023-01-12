@@ -32,6 +32,14 @@ densityPadel = run_query(f'SELECT * FROM "{sheet_url_padelDensity}"')
 sheet_url_communes = st.secrets["private_gsheets_url_communes"]
 communes = run_query(f'SELECT * FROM "{sheet_url_communes}"')
 
+sheet_url_age_communes = st.secrets["private_gsheets_url_age_communes"]
+age_communes = run_query(f'SELECT * FROM "{sheet_url_age_communes}"')
+
+sheet_url_age_intercom = st.secrets["private_gsheets_url_age_intercom"]
+age_intercom = run_query(f'SELECT * FROM "{sheet_url_age_intercom}"')
+
+
+
 len(densityPadel)
 DEPCOM = []
 COM = []
@@ -131,7 +139,7 @@ lng = []
 lat = []
 for i in range(len(communes)):
     Niveau_de_vie_Commune.append(float(communes[i][0]))
-    DEPCOM.append(float(communes[i][0]))
+    DEPCOM.append(communes[i][1])
     PTOT.append(int(float(communes[i][2])))
     Nom_commune.append(communes[i][3])
     Code_postal.append(int(float(communes[i][4])))
@@ -146,6 +154,53 @@ dfCommunes['Code_postal'] = Code_postal
 dfCommunes['coordonnees_gps'] = coordonnees_gps
 dfCommunes['lng'] = lng
 dfCommunes['lat'] = lat
+
+Code = []
+Libelle = []
+Population_mun = []
+Pop_moins_25 = []
+Pop_25_64 = []
+Pop_plus_64 =[]
+part_25_64 = []
+for i in range(len(age_communes)):
+    Code.append(age_communes[i][0])
+    Libelle.append(age_communes[i][1])
+    Population_mun.append(int(float(age_communes[i][2])))
+    Pop_moins_25.append(int(float(age_communes[i][3])))
+    Pop_25_64.append(int(float(age_communes[i][4])))
+    Pop_plus_64.append(int(float(age_communes[i][5])))
+    part_25_64.append(int(float(age_communes[i][6])))
+dfAgeCommunes = pd.DataFrame(Code, columns=['Code'])
+dfAgeCommunes['Commune'] = Libelle
+dfAgeCommunes['Population 2020'] = Population_mun
+dfAgeCommunes['Moins de 25 ans 2019'] = Pop_moins_25
+dfAgeCommunes['25-64 ans 2019'] = Pop_25_64
+dfAgeCommunes['Plus de 64 ans 2019'] = Pop_plus_64
+dfAgeCommunes['Part 25-64 ans 2019'] = part_25_64
+
+Code = []
+Libelle = []
+Population_mun = []
+Pop_moins_25 = []
+Pop_25_64 = []
+Pop_plus_64 =[]
+part_25_64 = []
+for i in range(len(age_intercom)):
+    Code.append(age_intercom[i][0])
+    Libelle.append(age_intercom[i][1])
+    Population_mun.append(int(float(age_intercom[i][2])))
+    Pop_moins_25.append(int(float(age_intercom[i][3])))
+    Pop_25_64.append(int(float(age_intercom[i][4])))
+    Pop_plus_64.append(int(float(age_intercom[i][5])))
+    part_25_64.append(int(float(age_intercom[i][6])))
+dfAgeIntercom = pd.DataFrame(Code, columns=['Code'])
+dfAgeIntercom['Intercommunalité'] = Libelle
+dfAgeIntercom['Population 2020'] = Population_mun
+dfAgeIntercom['Moins de 25 ans 2019'] = Pop_moins_25
+dfAgeIntercom['25-64 ans 2019'] = Pop_25_64
+dfAgeIntercom['Plus de 64 ans 2019'] = Pop_plus_64
+dfAgeIntercom['Part 25-64 ans 2019'] = part_25_64
+
 
 # %%
 
@@ -253,4 +308,12 @@ st.dataframe(chart_data2.drop(columns=['temp','weight','DEPCOM','COM','PMUN','PC
 st.title('Données communes')
 st.markdown('Le revenu disponible par unité de consommation (UC), également appelé \"niveau de vie\", est le revenu disponible par \"équivalent adulte\". Il est calculé en rapportant le revenu disponible du ménage au nombre d\'unités de consommation qui le composent. Toutes les personnes rattachées au même ménage fiscal ont le même revenu disponible par UC (ou niveau de vie)')
 st.dataframe(dfCommunes.drop(columns=['coordonnees_gps','lng','lat']))
+st.markdown('https://www.observatoire-des-territoires.gouv.fr/mediane-du-revenu-disponible-par-uc')
+
+st.title('Répartition âge communes')
+st.dataframe(dfAgeCommunes)
+
+st.title('Répartition âge intercommunalités')
+st.dataframe(dfAgeIntercom)
+
 
