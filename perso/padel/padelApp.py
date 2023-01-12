@@ -218,6 +218,6 @@ hide_table_row_index = """
             """
 # Inject CSS with Markdown
 st.markdown(hide_table_row_index, unsafe_allow_html=True)
-st.dataframe(chart_data2.drop(columns=['temp','weight','DEPCOM','COM','PMUN','PCAP','PTOT','lng','lat']))
+st.dataframe(chart_data2.drop(columns=['temp','weight','DEPCOM','COM','PMUN','PCAP','lng','lat']))
 
 
