@@ -29,6 +29,9 @@ padelList = run_query(f'SELECT * FROM "{sheet_url_padelList}"')
 sheet_url_padelDensity = st.secrets["private_gsheets_url_padelDensity"]
 densityPadel = run_query(f'SELECT * FROM "{sheet_url_padelDensity}"')
 
+sheet_url_communes = st.secrets["private_gsheets_url_communes"]
+communes = run_query(f'SELECT * FROM "{sheet_url_communes}"')
+
 len(densityPadel)
 DEPCOM = []
 COM = []
@@ -117,6 +120,33 @@ dfPadelList['business_status'] = business_status
 dfPadelList['lat'] = longitude
 dfPadelList['lon'] = latitude
 dfPadelList['coordonnees_gps'] = coordonnees_gps
+
+Niveau_de_vie_Commune = []
+Niveau_de_vie_Departement = []
+PTOT = []
+Nom_commune = []
+Code_postal = []
+coordonnees_gps = []
+lng = []
+lat = []
+for i in range(len(communes)):
+    Niveau_de_vie_Commune.append(float(communes[i][0]))
+    Niveau_de_vie_Departement.append(float(communes[i][1]))
+    PTOT.append(int(float(communes[i][2])))
+    Nom_commune.append(communes[i][3])
+    Code_postal.append(int(float(communes[i][4])))
+    coordonnees_gps.append(communes[i][5])
+    lng.append(float(communes[i][6]))
+    lat.append(float(communes[i][7]))
+dfCommunes = pd.DataFrame(Niveau_de_vie_Commune, columns=['Niveau_de_vie_Commune'])
+dfCommunes['Niveau_de_vie_Departement'] = Niveau_de_vie_Departement
+dfCommunes['PTOT'] = PTOT
+dfCommunes['Nom_commune'] = Nom_commune
+dfCommunes['Code_postal'] = Code_postal
+dfCommunes['coordonnees_gps'] = coordonnees_gps
+dfCommunes['lng'] = lng
+dfCommunes['lat'] = lat
+
 # %%
 
 chart_data = dfPadelList
@@ -209,7 +239,7 @@ r = pdk.Deck(
 
 st.pydeck_chart(r,use_container_width=False)
 
-st.title('Données utilisées')
+st.title('Données densité')
 hide_table_row_index = """
             <style>
             thead tr th:first-child {display:none}
@@ -220,4 +250,7 @@ hide_table_row_index = """
 st.markdown(hide_table_row_index, unsafe_allow_html=True)
 st.dataframe(chart_data2.drop(columns=['temp','weight','DEPCOM','COM','PMUN','PCAP','lng','lat']))
 
+st.title('Données communes')
+st.markdown('Le revenu disponible par unité de consommation (UC), également appelé \"niveau de vie\", est le revenu disponible par \"équivalent adulte\". Il est calculé en rapportant le revenu disponible du ménage au nombre d\'unités de consommation qui le composent. Toutes les personnes rattachées au même ménage fiscal ont le même revenu disponible par UC (ou niveau de vie)')
+st.dataframe(dfCommunes.drop(columns=['coordonnees_gps','lng','lat']))
 
