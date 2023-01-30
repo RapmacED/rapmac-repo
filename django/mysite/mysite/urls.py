@@ -14,18 +14,15 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from affiliation import views
+
+app_name = 'affiliation'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('bands/', views.band_list, name='band-list'),
-    path('bands/<int:id>/',views.band_detail, name='band-detail'),
+    path('', views.home, name='home'),
     path('about-us/', views.about),
     path('contact-us/', views.contact, name='contact'),
-    path('bands/add/', views.band_create, name='band-create'),
-    path('bands/<int:id>/update', views.band_update, name='band-update'),
-    path('bands/<int:id>/delete', views.band_delete, name='band-delete')
+    path('<str:slug>/', views.blog_detail)  # On inclue les chemins d'URLs de l'application posts
 ]
-
-

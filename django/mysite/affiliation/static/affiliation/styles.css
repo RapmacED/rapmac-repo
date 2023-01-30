@@ -1,1 +1,11 @@
-* { background-color: red }
+@font-face {
+    font-family: 'BebasNeue';
+    src: url("/static/BebasNeue-Regular.otf");
+}
+
+p {
+  font-family: BebasNeue;
+}
+h1 {
+    font-family: BebasNeue;
+  }

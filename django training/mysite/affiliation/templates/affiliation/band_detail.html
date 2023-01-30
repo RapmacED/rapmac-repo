@@ -1,0 +1,17 @@
+{% extends 'affiliation/base.html' %}
+
+{% block content %}
+
+<h2>{{ band.name }}</h2>
+
+<ul>
+ <li>Genre : {{ band.get_genre_display }}</li>
+ <li>Année de formation : {{ band.year_formed }}</li>
+ <li>Actif : {{ band.active }}</li>
+ <li>{{ band.official_homepage }}</li>
+</ul>
+
+<p>{{ band.biography }}</p>
+<a href="{% url 'band-list' %}"> Retour à tous les groupes</a>
+
+{% endblock %}

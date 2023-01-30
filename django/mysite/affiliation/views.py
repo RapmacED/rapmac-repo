@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from affiliation.models import Band
+from affiliation.models import Band, BlogPost
 from affiliation.forms import ContactUsForm, BandForm
 from django.core.mail import send_mail
 from django.shortcuts import redirect
@@ -63,3 +63,16 @@ def band_delete(request, id):
     return render(request,
                     'affiliation/band_delete.html',
                     {'band':band})
+
+def home(request):
+    posts = BlogPost.objects.all()
+    return render(request, 
+                'affiliation/blogpost_list.html',
+                {'posts': posts})
+
+
+def blog_detail(request, slug):
+    post = BlogPost.objects.get(slug=slug)
+    return render(request,
+                'affiliation/blogpost_detail.html',
+                {'post':post})
