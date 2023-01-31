@@ -5,12 +5,21 @@
 <head>
     <meta charset="UTF-8">
     {% block title %}{% endblock %}
-    <link rel="stylesheet" href="{% static 'affiliation/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'affiliation/pico/pico.min.css' %}">
 </head>
 <body>
-    <nav>
-        <a href="{% url 'home' %}">Accueil</a>
-    </nav>
+    <nav align="center">
+        <ul>
+            <li><strong>Tip Top Tech</strong></li>
+        </ul>
+        <ul>
+            <li><a href="#">High Tech</a></li>
+            <li><a href="#">Téléphones</a></li>
+            <li><a href="#">Jeux Vidéo</a></li>
+            <li><a href="#">Son</a></li>
+            <li><a href="#">Hébergement web</a></li>
+        </ul>
+      </nav>
 
 <section id="blog">
     {% block content %}{% endblock %}

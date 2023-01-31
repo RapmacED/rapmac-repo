@@ -42,3 +42,14 @@ class BlogPost(models.Model):
         if not self.slug:
             self.slug = slugify(self.title)
         super().save(*args, **kwargs)
+
+class BlogPart(models.Model):
+    name = models.CharField(max_length=255)
+    slug = models.SlugField(max_length=255, unique=True, blank=True)
+    picture = models.ImageField(null=False)
+    link = models.URLField(null=False)
+    last_updated = models.DateTimeField(auto_now=True)
+    created_on = models.DateField(blank=True, null=True)
+    description = models.TextField(blank=False, verbose_name="Contenu")
+    positive = models.TextField(blank=False)
+    negative = models.TextField(blank=False)
