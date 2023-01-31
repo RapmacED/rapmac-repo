@@ -96,7 +96,6 @@ pure-eval==0.2.2
 pyasn1==0.4.8
 pyasn1-modules==0.2.8
 pycparser==2.21
-pycurl==7.45.2
 Pygments==2.14.0
 pyparsing==3.0.9
 pyrsistent==0.19.2
