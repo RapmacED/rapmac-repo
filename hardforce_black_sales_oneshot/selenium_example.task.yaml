@@ -1,0 +1,14 @@
+# Full reference: https://docs.airplane.dev/tasks/task-definition
+
+slug: hard_force_platform
+name: Hardforce BlackSales One shot
+description: Check if email address is user of BlackSales or not.
+parameters:
+  - slug: email
+    name: email
+    type: shorttext
+    description: email adress to check.
+    required: true
+    default: "tartampion@lesgoudes.om"
+python:
+  entrypoint: hard_force_oneshot.py

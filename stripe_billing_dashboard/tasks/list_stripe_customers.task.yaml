@@ -1,0 +1,20 @@
+# Full reference: https://docs.airplane.dev/tasks/task-definition
+
+slug: demo_list_stripe_customers
+name: List Stripe customers
+description: "Calls Stripe API and fetches all customers whose email matches the search keyword."
+parameters:
+  - slug: search_keyword
+    name: Search keyword
+    type: shorttext
+    description: The search string
+    required: false
+node:
+  entrypoint: list_stripe_customers.ts
+  nodeVersion: "18"
+  # Uncomment if you want to use your own Stripe API key from a config variable
+  # Get your Stripe API keys here: https://stripe.com/docs/keys#obtain-api-keys
+  # How to use config variables in Airplane: https://docs.airplane.dev/platform/configs
+  # envVars:
+  #   STRIPE_SECRET_KEY:
+  #     config: STRIPE_SECRET_KEY

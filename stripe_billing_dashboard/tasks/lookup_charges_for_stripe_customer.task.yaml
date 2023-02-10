@@ -1,0 +1,20 @@
+# Full reference: https://docs.airplane.dev/tasks/task-definition
+
+slug: demo_lookup_charges_for_stripe_customer
+name: Lookup charges for Stripe customer
+description: "Looks up all historical Stripe charges for a customer given their ID"
+parameters:
+  - slug: customer_id
+    name: Customer ID
+    type: shorttext
+    description: The Stripe ID for this customer
+    required: false
+node:
+  entrypoint: lookup_charges_for_stripe_customer.ts
+  nodeVersion: "18"
+  # Uncomment if you want to use your own Stripe API key from a config variable
+  # Get your Stripe API keys here: https://stripe.com/docs/keys#obtain-api-keys
+  # How to use config variables in Airplane: https://docs.airplane.dev/platform/configs
+  # envVars:
+  #   STRIPE_SECRET_KEY:
+  #     config: STRIPE_SECRET_KEY

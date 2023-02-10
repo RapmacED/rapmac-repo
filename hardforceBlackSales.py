@@ -12,7 +12,9 @@ import streamlit as st
 
 
 st.title('Welcome to the Scalability HardForce platform')
+st.subheader('Upload the list of the emails to check')
 uploaded_file = st.file_uploader("Import your csv")
+uploaded_file = None
 
 @st.cache
 def process_browser_log_entry(entry):
@@ -47,6 +49,7 @@ def registeredOrNot(events):
 count = 0
 percent_complete = 0
 result=[]
+
 if uploaded_file is not None and count ==0:
     df=pd.read_csv(uploaded_file)
     if 'email' not in df:
@@ -95,3 +98,5 @@ if uploaded_file is not None and count ==0:
             file_name='result_scrap.csv',
             mime='text/csv',
         )
+
+
