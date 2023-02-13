@@ -6,6 +6,8 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from time import sleep
 import json
+import pandas as pd
+import airplane
 
 def process_browser_log_entry(entry):
     response = json.loads(entry['message'])['message']
@@ -37,7 +39,7 @@ def registeredOrNot(events, driver):
     return True
 
 def main(params: Dict[str, Any]) -> Dict[str, Any]:
-    options = webdriver.ChromeOptions()
+    """options = webdriver.ChromeOptions()
     options.add_argument('--ignore-ssl-errors=yes')
     options.add_argument('--ignore-certificate-errors')
     options.set_capability("goog:loggingPrefs", {'performance': 'ALL'})
@@ -59,12 +61,29 @@ def main(params: Dict[str, Any]) -> Dict[str, Any]:
     #if "https://app.blacksales.co/users/password/new" in events[i]['params']['url']:
     #print(i)
     result = registeredOrNot(events, driver)
-    driver.quit()
-    if result == False:
+    driver.quit()"""
+    
+    
+    df = pd.read_csv('/Users/raph/Documents/Dataship_Code/lW4B.csv')
+    df.head()
+    table = {'email': df['company_industry'],
+             'result': df['company_name']}
+    rows = []
+
+    for i in range(len(df)):
+        row = {'email': df['company_industry'][i],
+             'result': df['company_name'][i]}
+        rows.append(row)
+    
+    airplane.display.table(
+        rows
+    )
+
+    """if result == False:
         response = params['email'] + ' does not have BlackSales account'
     else:
         response = params['email'] + ' has BlackSales account'
-    return response
+    return response"""
     
 
 

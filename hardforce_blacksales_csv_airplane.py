@@ -18,8 +18,15 @@ def hardforce_blacksales_csv(
             name="Emails list",
             description="Column named 'email' containing all emails to test.",
         ),
-    ] = "upl20230210zqo136r21v9",
+    ] = "upl20230210zqo136r21v9"
 ):
+    url = params["file"]["url"]
+    # Download from URL into memory
+    response = urllib.request.urlopen(url)
+    # Open the file as a CSV
+    csv_file = csv.reader(io.TextIOWrapper(response))
+    for row in csv_file:
+        print(row)
     csv_file = csv.reader(io.TextIOWrapper(emails_list))
     for row in csv_file:
         print(row)
