@@ -38,3 +38,4 @@ ehthumbs.db
 Thumbs.db
 .env
 .virtualenvs
+creds.json
